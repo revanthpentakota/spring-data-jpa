@@ -107,7 +107,7 @@ class StudentRepositoryTest {
 
     @Test
     public void updateStudentNameByEmailId() {
-        int count = studentRepository.updateStudentNameByEmailId("Sai Revanthu", "sairev@gmail.com");
+        int count = studentRepository.updateStudentNameByEmailId("Sai Revanth", "sairev@gmail.com");
         System.out.println(count + " rows updated!!!");
     }
 }

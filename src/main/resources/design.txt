@@ -1,0 +1,2 @@
+Course -> CourseMaterial (1:1)
+Course -> Teacher (1: N) , (N : 1)
