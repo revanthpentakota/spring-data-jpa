@@ -1,6 +1,7 @@
 package com.revai.springdata.jpa.repository;
 
 import com.revai.springdata.jpa.entity.Course;
+import com.revai.springdata.jpa.entity.Student;
 import com.revai.springdata.jpa.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,28 @@ class CourseRepositoryTest {
                 .findByTitleContaining("S", firstPageWithTenRecords)
                 .getContent();
         courses.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+        Teacher teacher = Teacher.builder()
+                .firstName("Arnold")
+                .lastName("Sharma")
+                .build();
+        Student student = Student.builder()
+                .firstName("Abhi")
+                .lastName("Sharma")
+                .emailId("abhi777@gmail.com")
+                .build();
+        Course course = Course.builder()
+                .title("AI")
+                .credit(12)
+                .teacher(teacher)
+                .build();
+        course.addStudents(student);
+
+        courseRepository.save(course);
+
     }
 
 }
